@@ -1,11 +1,14 @@
 import { CHANGE_PAGE } from './actions.js';
+import { createStore } from 'redux';
+
+export const WELCOME_PAGE = "WELCOME_PAGE";
+export const HOMEPAGE = "HOMEPAGE";
 
 const initialState = {
-    page: 'homepage'
+    page: WELCOME_PAGE
 }
 
 function eatlyApp(state = initialState, action) {
-    alert(`${state.page} - ${action.page}`)
     switch(action.type) {
         case CHANGE_PAGE:
             return Object.assign({}
@@ -18,4 +21,6 @@ function eatlyApp(state = initialState, action) {
     }
 }
 
-export default eatlyApp
+const eatlyStore = createStore(eatlyApp)
+
+export default eatlyStore;

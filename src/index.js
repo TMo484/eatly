@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import eatlyApp from './redux/reducer'
-import Homepage from './pages/homepage';
-import Welcome from './pages/welcome';
-
-const eatlyStore = createStore(eatlyApp)
+import eatlyStore from './redux/reducer';
+import App from './App';
 
 ReactDOM.render(<Provider store={eatlyStore}>
-                    <Welcome/>
+                    <App/>
                 </Provider>
                 , document.getElementById('main'));
