@@ -1,16 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changePage } from '../../redux/actions';
 
 class NavigationButton extends React.Component{
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        this.props.changePage(this.props.target)
+    }
 
     render() {
         return (
-            <a href={this.props.target}>
-                <div className="navigation_button">
-                    {this.props.label}
-                </div>
-            </a>
+            <button className="navigation_button" onClick={this.handleClick}>{this.props.label}</button>
         )
     }
 }
 
-export default NavigationButton;
+export default connect(null, {changePage})(NavigationButton);
