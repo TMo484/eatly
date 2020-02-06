@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 
 export const WELCOME_PAGE = "WELCOME_PAGE";
 export const HOMEPAGE = "HOMEPAGE";
+export const SEARCH_INGREDIENT = "SEARCH_INGREDIENT";
 
 const initialState = {
     page: WELCOME_PAGE
