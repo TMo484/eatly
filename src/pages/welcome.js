@@ -7,11 +7,11 @@ class WelcomePage extends React.Component {
 
     render() {
         return (
-            <div class="outer">
+            <div className="outer">
                 <WelcomeHeader/>
                 <div className="content vertically_spaced">
-                    <NavigationButton label="Login" target="LOGINPAGE"/>
-                    <NavigationButton label="Visit as Guest" target={HOMEPAGE}/>
+                    <NavigationButton buttonType = "navigation_button" label="Login" target="LOGINPAGE"/>
+                    <NavigationButton buttonType = "navigation_button" label="Visit as Guest" target={HOMEPAGE}/>
                 </div>
             </div>
         )

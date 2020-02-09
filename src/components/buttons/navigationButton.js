@@ -14,7 +14,7 @@ class NavigationButton extends React.Component{
 
     render() {
         return (
-            <button className="navigation_button" onClick={this.handleClick}>{this.props.label}</button>
+            <button className={this.props.buttonType} onClick={this.handleClick}>{this.props.label}</button>
         )
     }
 }

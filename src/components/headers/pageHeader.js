@@ -1,4 +1,6 @@
 import React from 'react';
+import NavigationButton from '../buttons/navigationButton';
+import { HOMEPAGE } from '../../redux/reducer';
 
 class PageHeader extends React.Component {
     render() {
@@ -6,9 +8,9 @@ class PageHeader extends React.Component {
             <React.Fragment>
                 <div className="header page_header horizontally_spaced">
                     <div className="header_section"></div>
-                    <button className="header_button">Recipe Search</button>
-                    <button className="header_button">Meal Planning</button>
-                    <button className="header_button">Grocery List</button>
+                    <NavigationButton buttonType="header_button" label="Recipe Search" target={HOMEPAGE}/>
+                    <NavigationButton buttonType="header_button" label="Meal Planning" target="LOGINPAGE"/>
+                    <NavigationButton buttonType="header_button" label="Grocery List" target="LOGINPAGE"/>
                     <div className="header_section"></div>
                 </div>
             </React.Fragment>

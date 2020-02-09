@@ -10,9 +10,9 @@ class Homepage extends React.Component {
             <div className="outer">
                 <PageHeader/>
                 <div className="content vertically_spaced">
-                    <NavigationButton label="Explore by Cuisine" target="explore"/>
-                    <NavigationButton label="Browse by Category" target="browse"/>
-                    <NavigationButton label="Search by Ingredient" target={SEARCH_INGREDIENT}/>
+                    <NavigationButton buttonType = "navigation_button" label="Explore by Cuisine" target="explore"/>
+                    <NavigationButton buttonType = "navigation_button" label="Browse by Category" target="browse"/>
+                    <NavigationButton buttonType = "navigation_button" label="Search by Ingredient" target={SEARCH_INGREDIENT}/>
                 </div>
             </div>
         )
