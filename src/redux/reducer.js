@@ -4,9 +4,10 @@ import { createStore } from 'redux';
 export const WELCOME_PAGE = "WELCOME_PAGE";
 export const HOMEPAGE = "HOMEPAGE";
 export const SEARCH_INGREDIENT = "SEARCH_INGREDIENT";
+export const RECIPE_RESULTS = "RECIPE_RESULTS";
 
 const initialState = {
-    page: WELCOME_PAGE
+    page: SEARCH_INGREDIENT
 }
 
 function eatlyApp(state = initialState, action) {
