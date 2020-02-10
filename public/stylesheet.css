@@ -127,3 +127,20 @@ body {
   background-color: #DDDDDD;
   flex: 1 0 auto;
 }
+
+.recipe_card {
+	display: flex;
+	background-color: grey;
+	margin: 10px;
+	align-items: center;
+}
+
+.recipe_image {
+	width: 150px;
+	height: 80px;
+	background-color: darkgrey;
+}
+
+.recipe_title {
+	margin: 10px;
+}
