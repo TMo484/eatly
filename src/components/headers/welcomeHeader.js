@@ -1,5 +1,5 @@
 import React from 'react';
-import eatly_splash from '../../assets/eatly_splash_tmori.jpg';
+// import eatly_splash from '../../assets/eatly_splash_tmori.jpg';
 
 class WelcomeHeader extends React.Component {
     render() {

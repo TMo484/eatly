@@ -24,16 +24,16 @@ class App extends React.Component {
     }
 
     render() {
-        if (this.state.page == WELCOME_PAGE) {
+        if (this.state.page === WELCOME_PAGE) {
             return <WelcomePage/>
         }
-        else if (this.state.page == HOMEPAGE) {
+        else if (this.state.page === HOMEPAGE) {
             return <Homepage/>
         }
-        else if (this.state.page == SEARCH_INGREDIENT) {
+        else if (this.state.page === SEARCH_INGREDIENT) {
             return <SearchIngredientPage/>
         }
-        else if (this.state.page == RECIPE_RESULTS) {
+        else if (this.state.page === RECIPE_RESULTS) {
             return <RecipeResultsPage/>
         }
         else {return <WelcomePage/>}

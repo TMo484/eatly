@@ -1,32 +1,54 @@
 import React from 'react';
 import RecipeCard from '../cards/recipeCard';
-import { ingredientSearchResult } from '../../fakeAPIData/searchForRecipe';
-
-var unirest = require("unirest");
-
-var req = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/98730/information");
-
-req.headers({
-	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-	"x-rapidapi-key": "92197e62f2msh377f9ed69df35c4p1aa491jsn89aa5fbc8831"
-});
+// import { ingredientSearchResult } from '../../fakeAPIData/searchForRecipe';
 
 
-req.end(function (res) {
-	if (res.error) throw new Error(res.error);
-
-	console.log(res.body);
-});
 
 class RecipeList extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            recipies: null
+        }
+    }
+
+    componentDidMount() {
+        this.getSearchResults()
+    }
+    
+    getSearchResults() {
+        fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?cuisine=italian&offset=0&query=salmon", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": "567db352abmsh13357ac57d5601dp13e396jsn107cd8d716e7"
+            }
+            }).then(response => {
+                response.json().then(parsedJson => {
+                    this.setState({ recipies: parsedJson })
+                })
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({ recipies: {}})
+            })
+        }
+    
     render() {
-        return (
+        if (!this.state.recipies) {
+            return (
             <div className="content vertically_spaced">
-                {ingredientSearchResult.results.map(recipe => {
-                    return <RecipeCard recipe={recipe}/>
-                })}
+                <h3>Finding the best of the best...</h3>
             </div>
-        )
+            )
+        } else {
+            return (
+                <div className="content vertically_spaced">
+                    {this.state.recipies.results.map(recipe => {
+                        return <RecipeCard key={recipe.id} recipe={recipe}/>
+                    })}
+                </div>
+            )}
     }
 }
 

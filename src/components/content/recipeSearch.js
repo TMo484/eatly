@@ -10,7 +10,6 @@ class RecipeSearch extends React.Component {
     }
 
     handleSearch() {
-        let searchQuery = document.getElementById("recipeQuery").value
         this.props.changePage(RECIPE_RESULTS)
     }
 
