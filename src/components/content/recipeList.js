@@ -1,7 +1,5 @@
 import React from 'react';
 import RecipeCard from '../cards/recipeCard';
-// import { ingredientSearchResult } from '../../fakeAPIData/searchForRecipe';
-
 
 
 class RecipeList extends React.Component {
@@ -13,7 +11,7 @@ class RecipeList extends React.Component {
     }
 
     componentDidMount() {
-        this.getSearchResults()
+        // this.getSearchResults()
     }
     
     getSearchResults() {

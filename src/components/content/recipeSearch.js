@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changePage } from '../../redux/actions';
+import { changePage, changeQueryTerms } from '../../redux/actions';
 import { RECIPE_RESULTS } from '../../redux/reducer';
 
 class RecipeSearch extends React.Component {
@@ -11,16 +11,19 @@ class RecipeSearch extends React.Component {
 
     handleSearch() {
         this.props.changePage(RECIPE_RESULTS)
+        // this.props.changeQueryTerms([`query:${document.getElementById("query").value}`])
     }
 
     render() {
         return (
             <div className="content vertically_spaced">
-                <input type="text" id="recipeQuery"></input>
-                <button id="recipeSearch" onClick={this.handleSearch}>Search for Recipe</button>
+                <form method="get" action="/">
+                    <input name="query" type="text" id="query"></input>
+                    <button type="submit" id="recipeSearch" onClick={this.handleSearch}>Search for Recipe</button>
+                </form> 
             </div>
         )
     }
 }
 
-export default connect(null, {changePage})(RecipeSearch);
+export default connect(null, {changePage, changeQueryTerms})(RecipeSearch);

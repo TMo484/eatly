@@ -1,4 +1,4 @@
-import { CHANGE_PAGE } from './actions.js';
+import { CHANGE_PAGE, CHANGE_QUERYTERMS } from './actions.js';
 import { createStore } from 'redux';
 
 export const WELCOME_PAGE = "WELCOME_PAGE";
@@ -7,7 +7,9 @@ export const SEARCH_INGREDIENT = "SEARCH_INGREDIENT";
 export const RECIPE_RESULTS = "RECIPE_RESULTS";
 
 const initialState = {
-    page: SEARCH_INGREDIENT
+    page: WELCOME_PAGE,
+    queryTerms: []
+
 }
 
 function eatlyApp(state = initialState, action) {
@@ -18,6 +20,12 @@ function eatlyApp(state = initialState, action) {
                                  , {
                                      page: action.page
                                  })
+        case CHANGE_QUERYTERMS:
+            return Object.assign({}
+                                , state
+                                , {
+                                    queryTerms: action.terms
+                                })
         default:
             return state
     }
