@@ -13,20 +13,18 @@ class RecipeSearch extends React.Component {
     handleSearch(e) {
         console.log(document.getElementById("query").value)
         this.props.changePage(RECIPE_RESULTS)
+        // <Link to={
+        //     pathname: "/results",
+        //     search: document.getElementById("query").value
+        //     }></Link>
     }
 
     render() {
         return (
-            <Link to={{
-                pathname: "/results",
-                search: document.getElementById("query").value
-            }}>
-                <div className="content vertically_spaced">
-                    <input name="query" type="text" id="query"></input>
-                    
-                        <button type="submit" onClick={this.handleSearch} id="recipeSearch">Search for Recipe</button>
-                </div>
-            </Link>
+            <div className="content vertically_spaced">
+                <input name="query" type="text" id="query"></input>            
+                <button type="submit" onClick={this.handleSearch} id="recipeSearch">Search for Recipe</button>
+            </div>
         )
     }
 }
