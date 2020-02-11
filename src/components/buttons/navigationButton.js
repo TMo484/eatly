@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePage } from '../../redux/actions';
+import { Link } from 'react-router-dom';
 
 class NavigationButton extends React.Component{
     constructor(props) {
@@ -14,7 +15,9 @@ class NavigationButton extends React.Component{
 
     render() {
         return (
-            <button className={this.props.buttonType} onClick={this.handleClick}>{this.props.label}</button>
+            <Link to={this.props.route}>
+                <button className={this.props.buttonType} onClick={this.handleClick}>{this.props.label}</button>
+            </Link>
         )
     }
 }

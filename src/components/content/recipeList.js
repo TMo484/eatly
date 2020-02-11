@@ -11,7 +11,7 @@ class RecipeList extends React.Component {
     }
 
     componentDidMount() {
-        // this.getSearchResults()
+        this.getSearchResults()
     }
     
     getSearchResults() {
