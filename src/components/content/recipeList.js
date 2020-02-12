@@ -15,7 +15,13 @@ class RecipeList extends React.Component {
     }
     
     getSearchResults() {
-        fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?cuisine=italian&offset=0&query=salmon", {
+        const URLParams = new URLSearchParams(window.location.search)
+
+        const URLQuery = URLParams.get("query")
+
+        const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?cuisine=italian&offset=0&query=${URLQuery}`
+
+        fetch(fetchURL, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",

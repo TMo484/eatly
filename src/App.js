@@ -4,9 +4,7 @@ import Homepage from './pages/homepage';
 import SearchIngredientPage from './pages/searchIngredient';
 import RecipeResultsPage from './pages/recipeResults';
 import eatlyStore from './redux/reducer';
-import { WELCOME_PAGE, HOMEPAGE, SEARCH_INGREDIENT, RECIPE_RESULTS } from './redux/reducer';
 import {
-    BrowserRouter as Router,
     Switch,
     Route
   } from "react-router-dom";

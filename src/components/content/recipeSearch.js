@@ -18,7 +18,6 @@ class RecipeSearch extends React.Component {
     }
 
     handleSearchTerm(e) {
-        console.log(document.getElementById("query").value)
         this.setState({searchTerm: document.getElementById("query").value})
     }
 
