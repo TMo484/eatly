@@ -5,6 +5,11 @@ import SearchIngredientPage from './pages/searchIngredient';
 import RecipeResultsPage from './pages/recipeResults';
 import eatlyStore from './redux/reducer';
 import { WELCOME_PAGE, HOMEPAGE, SEARCH_INGREDIENT, RECIPE_RESULTS } from './redux/reducer';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -24,20 +29,25 @@ class App extends React.Component {
     }
 
     render() {
-        if (this.state.page === WELCOME_PAGE) {
-            return <WelcomePage/>
-        }
-        else if (this.state.page === HOMEPAGE) {
-            return <Homepage/>
-        }
-        else if (this.state.page === SEARCH_INGREDIENT) {
-            return <SearchIngredientPage/>
-        }
-        else if (this.state.page === RECIPE_RESULTS) {
-            return <RecipeResultsPage/>
-        }
-        else {return <WelcomePage/>}
-        
+        return (
+            <Switch>
+                <Route path="/login">
+                    <WelcomePage/>
+                </Route>
+                <Route path="/find">
+                    <Homepage/>
+                </Route>
+                <Route path="/search">
+                    <SearchIngredientPage/>
+                </Route>
+                <Route path="/results">
+                    <RecipeResultsPage/>
+                </Route>
+                <Route path="/">
+                    <WelcomePage/>
+                </Route>
+            </Switch>
+        )
     }
 }
 

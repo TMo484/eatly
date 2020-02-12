@@ -21,6 +21,7 @@ function eatlyApp(state = initialState, action) {
                                      page: action.page
                                  })
         case CHANGE_QUERYTERMS:
+            console.log()
             return Object.assign({}
                                 , state
                                 , {

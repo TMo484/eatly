@@ -8,22 +8,27 @@ class RecipeSearch extends React.Component {
     constructor(props){
         super(props)
         this.handleSearch = this.handleSearch.bind(this)
+        this.state = {
+            searchTerm: ""
+        }
     }
 
     handleSearch(e) {
-        console.log(document.getElementById("query").value)
         this.props.changePage(RECIPE_RESULTS)
-        // <Link to={
-        //     pathname: "/results",
-        //     search: document.getElementById("query").value
-        //     }></Link>
+    }
+
+    handleSearchTerm(e) {
+        console.log(document.getElementById("query").value)
+        this.setState({searchTerm: document.getElementById("query").value})
     }
 
     render() {
         return (
-            <div className="content vertically_spaced">
-                <input name="query" type="text" id="query"></input>            
-                <button type="submit" onClick={this.handleSearch} id="recipeSearch">Search for Recipe</button>
+            <div className="content vertically_spaced">            
+                <input name="query" type="text" id="query" onChange={this.handleSearchTerm.bind(this)}></input>
+                <Link to={{pathname: "/results", search: `query=${this.state.searchTerm}`}}>
+                    <button type="submit" onClick={this.handleSearch} id="recipeSearch">Search for Recipe</button>
+                </Link>
             </div>
         )
     }
