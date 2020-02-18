@@ -13,13 +13,28 @@ class RecipeList extends React.Component {
     componentDidMount() {
         this.getSearchResults()
     }
+
+    addParameter(currParams, newParam, newCategory) {
+        if (currParams && newParam) {
+            currParams += `&${newCategory}=${newParam}`
+        } else if (!currParams && newParam) {
+            currParams += `${newCategory}=${newParam}`
+        }
+        return currParams
+    }
     
     getSearchResults() {
         const URLParams = new URLSearchParams(window.location.search)
 
-        const URLQuery = URLParams.get("query")
+        let parameters = ""
 
-        const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?cuisine=italian&offset=0&query=${URLQuery}`
+        const URLQuery = URLParams.get("query")
+        const URLCuisine = URLParams.get("cuisine")
+
+        parameters = this.addParameter(parameters, URLQuery, "query")
+        parameters = this.addParameter(parameters, URLCuisine, "cuisine")
+
+        const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?offset=0&${parameters}`
 
         fetch(fetchURL, {
             "method": "GET",

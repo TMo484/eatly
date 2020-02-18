@@ -52,6 +52,10 @@ body {
   margin: 0;
 }
 
+.eatly_font {
+	font-family: 'Pacifico', cursive;
+}
+
 .header {
 	background-color:whitesmoke;
 	padding: 0;

@@ -7,7 +7,7 @@ class WelcomeHeader extends React.Component {
             <React.Fragment>
                 <div className="welcome_header header">
                     {/* <img src={eatly_splash} alt="A set dining table with food"/> */}
-                    <div className="centered_caption" id="welcome_header_text">Welcome to Eatly!</div>
+                    <div className="centered_caption" id="welcome_header_text">Welcome to <span className="eatly_font">eatly</span></div>
                 </div>
             </React.Fragment>
         )
