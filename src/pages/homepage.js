@@ -10,7 +10,7 @@ class Homepage extends React.Component {
             <div className="outer">
                 <PageHeader/>
                 <div className="content vertically_spaced">
-                    <NavigationButton buttonType = "navigation_button" route="/explore" label="Explore by Cuisine" target="explore"/>
+                    <NavigationButton buttonType = "navigation_button" route="/explore" label="Explore by Cuisine" target="explore" />
                     <NavigationButton buttonType = "navigation_button" route="/browse" label="Browse by Category" target="browse"/>
                     <NavigationButton buttonType = "navigation_button" route="/search" label="Search by Ingredient" target={SEARCH_INGREDIENT}/>
                 </div>

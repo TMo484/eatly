@@ -26,8 +26,6 @@ class RecipeList extends React.Component {
     getSearchResults() {
         const URLParams = new URLSearchParams(window.location.search)
 
-        let parameters = ""
-
         const URLQuery = URLParams.get("query")
         const URLCuisine = URLParams.get("cuisine")
 
@@ -41,11 +39,6 @@ class RecipeList extends React.Component {
         }).filter(category => {
             return category !== undefined
         }).join("&")
-
-        // console.log(queryString)
-
-        // parameters = this.addParameter(parameters, URLQuery, "query")
-        // parameters = this.addParameter(parameters, URLCuisine, "cuisine")
 
         const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${queryString}`
 
