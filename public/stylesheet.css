@@ -54,6 +54,7 @@ body {
 
 .eatly_font {
 	font-family: 'Pacifico', cursive;
+	color: orange;
 }
 
 .header {
@@ -147,4 +148,8 @@ body {
 
 .recipe_title {
 	margin: 10px;
+}
+
+.fa-arrow-left {
+	color: orange
 }
