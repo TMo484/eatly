@@ -38,11 +38,23 @@ class Recipe extends React.Component {
         })
     }
 
+    addToGroceryList() {
+        // window.localStorage.clear()
+        let groceryList = JSON.parse(window.localStorage.getItem("groceryList")) || []
+        console.log(groceryList)
+        this.state.recipe[0].extendedIngredients.map(ingredient => {
+            groceryList.push(ingredient)
+        })
+        window.localStorage.setItem("groceryList", JSON.stringify(groceryList))
+        console.log(window.localStorage.getItem("groceryList"))
+    }
+
     render() {
         if(!this.state.recipe) {
             return <h3>Excellent Choice! Loading the recipe now</h3>
         } else {
             const recipe = this.state.recipe[0]
+            this.addToGroceryList()
             return (
                 <React.Fragment>
                     <img className="recipe_image" src={recipe.image}/>
