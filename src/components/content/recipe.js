@@ -38,15 +38,19 @@ class Recipe extends React.Component {
         })
     }
 
-    addToGroceryList() {
-        // window.localStorage.clear()
-        let groceryList = JSON.parse(window.localStorage.getItem("groceryList")) || []
-        console.log(groceryList)
-        this.state.recipe[0].extendedIngredients.map(ingredient => {
+    addToGroceryList(i, r) {
+        if(i) {
+            let ingredient = {
+                recipeid: r.id,
+                name: i.name,
+                aisle: i.aisle,
+                amount: i.amount,
+                unit: i.measures.us.unitLong
+            }
+            let groceryList = JSON.parse(window.localStorage.getItem("groceryList")) || []
             groceryList.push(ingredient)
-        })
-        window.localStorage.setItem("groceryList", JSON.stringify(groceryList))
-        console.log(window.localStorage.getItem("groceryList"))
+            window.localStorage.setItem("groceryList", JSON.stringify(groceryList))
+        }
     }
 
     render() {
@@ -63,7 +67,12 @@ class Recipe extends React.Component {
                     <h1>Serves: {recipe.servings}</h1>
                     <h1>Ingredients</h1>
                     {recipe.extendedIngredients.map(ingredient => {
-                        return <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                        return (
+                            <>
+                                <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                <button onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>Add to Shopping List</button>
+                            </>
+                        )
                     })}
                     <h1>Directions</h1>
                     {recipe.analyzedInstructions[0].steps.map(instruction => {
