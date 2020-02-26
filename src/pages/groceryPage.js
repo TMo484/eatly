@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import PageHeader from '../components/headers/pageHeader';
 
 class GroceryPage extends React.Component {
@@ -6,11 +7,9 @@ class GroceryPage extends React.Component {
         return (
             <React.Fragment>
                 <PageHeader/>
-                {/* <--These are not working because localstorage stores as string, and I need it as a list -->
-                {window.localStorage.getItem("groceryList").map(ingredient => {
-                    return <h1>testaroony</h1>
+                {JSON.parse(window.localStorage.getItem("groceryList")).map(ingredient => {
+                    return <h1>{_.startCase(ingredient.name)}</h1>
                 })}
-                <h1>{window.localStorage.getItem("groceryList")}</h1> */}
             </React.Fragment>
         )
     } 
