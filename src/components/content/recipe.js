@@ -42,13 +42,16 @@ class Recipe extends React.Component {
         if(i) {
             let ingredient = {
                 recipeid: r.id,
+                recipeName: r.title,
+                ingredientid: i.id,
                 name: i.name,
                 aisle: i.aisle,
                 amount: i.amount,
                 unit: i.measures.us.unitLong
             }
-            let groceryList = JSON.parse(window.localStorage.getItem("groceryList")) || []
-            groceryList.push(ingredient)
+            let groceryList = JSON.parse(window.localStorage.getItem("groceryList")) || {}
+            let id = `${r.id}_${i.id}`
+            groceryList[id] = ingredient
             window.localStorage.setItem("groceryList", JSON.stringify(groceryList))
         }
     }
