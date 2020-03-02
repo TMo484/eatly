@@ -7,7 +7,7 @@ class CusineCard extends React.Component {
     render() {
         return (
             <Link to={{pathname: "/results", search: `cuisine=${this.props.cuisine}`}}>
-                <button>{_.startCase(this.props.cuisine)}</button>
+                <button className="cuisine_button">{_.startCase(this.props.cuisine)}</button>
             </Link>
         )
     }

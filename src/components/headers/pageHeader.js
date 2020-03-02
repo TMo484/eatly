@@ -1,6 +1,25 @@
 import React from 'react';
 import NavigationButton from '../buttons/navigationButton';
-import { HOMEPAGE } from '../../redux/reducer';
+
+let recipeSearchButton = {
+    buttonType: "header_button",
+    route: "/find",
+    label: "Recipe Search"
+}
+
+let mealPlannigButton = {
+    buttonType: "header_button",
+    route: "/planning",
+    label: "Meal Planning"
+}
+
+let groceryListButton = {
+    buttonType: "header_button",
+    route: "/grocery",
+    label: "Grocery List"
+}
+
+const buttonList = [recipeSearchButton, mealPlannigButton, groceryListButton]
 
 class PageHeader extends React.Component {
 
@@ -11,13 +30,16 @@ class PageHeader extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="header page_header horizontally_spaced">
-                    <div className="header_section"></div>
-                    <i class="fas fa-arrow-left fa-3x" onClick={this.handleGoBack.bind(this)}></i>
-                    <NavigationButton buttonType="header_button" route="/find" label="Recipe Search" target={ HOMEPAGE }/>
-                    <NavigationButton buttonType="header_button" route="/planning" label="Meal Planning" target="LOGINPAGE"/>
-                    <NavigationButton buttonType="header_button" route="/grocery" label="Grocery List" target="LOGINPAGE"/>
-                    <div className="header_section"></div>
+                <div className="header">
+                    <div><span className="eatly_font">eatly</span></div>
+                    <div className="page_header">
+                        <i class="fas fa-arrow-left fa-3x" onClick={this.handleGoBack.bind(this)}></i>
+                        {buttonList.map(button => {
+                            let buttonClass = window.location.pathname === button.route ? `${button.buttonType} ${button.buttonType}_active` : button.buttonType
+                            return <NavigationButton buttonType={buttonClass} route={button.route} label={button.label}/>
+                        })}
+                        <i class="fas fa-bars fa-3x"></i>
+                    </div>
                 </div>
             </React.Fragment>
         )

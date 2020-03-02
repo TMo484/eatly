@@ -75,13 +75,6 @@ body {
 	vertical-align: middle;
 }
 
-.header_button {
-	height: 100%;
-	width: 100%;
-	text-align: center;
-	vertical-align: middle;
-}
-
 .header_section {
 	height: 100%;
 	width: 25%;
@@ -92,11 +85,11 @@ body {
 	justify-content: space-evenly;
 	flex-direction: column;
 }
-
+/* 
 .horizontally_spaced {
 	display:flex;
 	justify-content: space-evenly;
-}
+} */
 
 .welcome_header {
 	height: 25vw;
@@ -115,7 +108,22 @@ body {
 }
 
 .page_header {
-	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.header_button {
+	width: 20vw;
+	height: 10vh;
+	border: 0px;
+	background-color: whitesmoke;
+	cursor: pointer;
+}
+
+.header_button_active {
+	border-top: 4px solid #ED7D28;
+	background-color: #EEECE8;
 }
 
 .centered_caption {
@@ -138,7 +146,7 @@ body {
 }
 
 .content {
-  background-color: #DDDDDD;
+  background-color: #EEECE8;
   flex: 1 0 auto;
 }
 
@@ -159,6 +167,18 @@ body {
 	margin: 10px;
 }
 
-.fa-arrow-left {
-	color: orange
+i[class^="fas fa"] {
+	color: orange;
+	cursor: pointer;
+}
+
+.cuisine_list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cuisine_button {
+	width: 150px;
+	height: 75px;
 }
