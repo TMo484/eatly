@@ -3,9 +3,9 @@ import WelcomePage from './pages/welcome';
 import Homepage from './pages/homepage';
 import SearchIngredientPage from './pages/searchIngredient';
 import RecipeResultsPage from './pages/recipeResults';
-import ExploreCuisinePage from './pages/exploreCuisine';
 import RecipePage from './pages/recipePage';
 import GroceryPage from './pages/groceryPage';
+import SearchPage from './pages/searchPage';
 import eatlyStore from './redux/reducer';
 import {
     Switch,
@@ -36,7 +36,7 @@ class App extends React.Component {
                     <WelcomePage/>
                 </Route>
                 <Route path="/find">
-                    <Homepage/>
+                    <SearchPage/>
                 </Route>
                 <Route path="/search">
                     <SearchIngredientPage/>
@@ -44,14 +44,14 @@ class App extends React.Component {
                 <Route path="/results">
                     <RecipeResultsPage/>
                 </Route>
-                <Route path="/explore">
-                    <ExploreCuisinePage/>
-                </Route>
                 <Route path="/recipe">
                     <RecipePage/>
                 </Route>
                 <Route path="/grocery">
                     <GroceryPage/>
+                </Route>
+                <Route path="/planning">
+                    <Homepage/>
                 </Route>
                 <Route path="/">
                     <WelcomePage/>

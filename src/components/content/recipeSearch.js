@@ -27,7 +27,7 @@ class RecipeSearch extends React.Component {
 
     render() {
         return (
-            <div className="content vertically_spaced">            
+            <div>            
                 <h4>Search Term</h4>
                 <input name="query" type="text" id="query" onChange={this.handleSearchTerm.bind(this)}></input>
                 <h4>Include Ingredient</h4>
@@ -36,9 +36,6 @@ class RecipeSearch extends React.Component {
                 <h4>Exclude Ingredient</h4>
                 <input name="excludeItem" type="text" id="excludeItem" onChange={this.handleSearchTerm.bind(this)}></input>
                 <button name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude.bind(this)}>Exclude Ingredient</button>
-                <Link to={{pathname: "/results", search: `query=${this.state.searchTerm}`}}>
-                    <button type="submit" onClick={this.handleSearch} id="recipeSearch">Search for Recipe</button>
-                </Link>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/headers/pageHeader';
-import CuisineList from '../components/content/cuisineList';
+import CuisineList from '../components/content/ToBeDeleted_cuisineList';
 
 class ExploreCuisinePage extends React.Component {
     render() {

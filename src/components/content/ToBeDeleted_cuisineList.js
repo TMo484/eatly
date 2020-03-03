@@ -1,5 +1,5 @@
 import React from 'react';
-import CusineCard from '../../components/cards/cuisineCard';
+import CusineCard from '../cards/ToBeDeleted_cuisineCard';
 
 let cuisineList = ["african", "chinese", "japanese", "korean", "vietnamese", "thai", "indian", "british", "irish", "french", "italian", "mexican", "spanish", "middle eastern", "jewish", "american", "cajun", "southern", "greek", "german", "nordic", "eastern european", "caribbean", "latin american"]
 

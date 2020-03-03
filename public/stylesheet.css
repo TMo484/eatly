@@ -85,11 +85,6 @@ body {
 	justify-content: space-evenly;
 	flex-direction: column;
 }
-/* 
-.horizontally_spaced {
-	display:flex;
-	justify-content: space-evenly;
-} */
 
 .welcome_header {
 	height: 25vw;
@@ -172,13 +167,42 @@ i[class^="fas fa"] {
 	cursor: pointer;
 }
 
-.cuisine_list {
+.search_section {
+	padding: 10px 0 10px 0;
+}
+
+#search_term_section {
+	display: flex;
+	flex-flow: column;
+}
+
+#inc_exc_section {
+	display: flex;
+}
+
+.include_exclude {
+	display: flex;
+	flex-flow: column;
+	width: 45vw;
+	padding: 0 2.5vw 0 2.5vw;
+}
+
+#cuisine_list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
+.cuisine_card {
+	width: 150px;
+	height: 75px;
+}
+
 .cuisine_button {
 	width: 150px;
 	height: 75px;
+}
+
+.cuisine_card_active {
+	background-color: green;
 }
