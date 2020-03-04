@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import _ from 'lodash';
 import PageHeader from '../components/headers/pageHeader';
 import NavigationButton from '../components/buttons/navigationButton';
 
@@ -11,6 +11,8 @@ class SearchPage extends React.Component {
         this.state = {
             searchTerm: "",
             searchCuisine: [],
+            includeTerms: [],
+            excludeTerms: [],
             cuisineList: {
                 "african":{name: "african", active: false}, 
                 "chinese":{name: "chinese", active: false}, 
@@ -44,8 +46,24 @@ class SearchPage extends React.Component {
         this.setState({searchTerm: document.getElementById("query").value})
     }
 
-    handleInclude(e) {
-
+    handleInclude(side) {
+        if(side === "include") {
+            let metaincludeTerms = this.state.includeTerms
+            const includeItem = document.getElementById("includeItem").value
+            if(includeItem) {
+                metaincludeTerms.push(includeItem)
+                document.getElementById("includeItem").value = ""
+            }
+            this.setState({includeTerms: metaincludeTerms})
+        } else if (side = "exclude") {
+            let metaExcludeTerms = this.state.excludeTerms
+            const excludeItem = document.getElementById("excludeItem").value
+            if(excludeItem) {
+                metaExcludeTerms.push(excludeItem)
+                document.getElementById("excludeItem").value = ""
+            }
+            this.setState({excludeTerms: metaExcludeTerms})
+        }
     }
 
     handleCuisineClick(cuisineKey) {
@@ -76,13 +94,19 @@ class SearchPage extends React.Component {
                         <div id="inc_exc_section">
                             <div class="include_exclude">
                                 <h4>Include Ingredient</h4>
-                                <input name="includeItem" type="text" id="includeItem" onChange={this.handleSearchTerm}></input>
-                                <button name="includeButton" type="button" id="includeButton" onClick={this.handleInclude}>Include Ingredient</button>
+                                <input name="includeItem" type="text" id="includeItem"></input>
+                                <button className="primary" name="includeButton" type="button" id="includeButton" onClick={this.handleInclude.bind(this, "include")}>Include Ingredient</button>
+                                {this.state.includeTerms.map(term => {
+                                    return <h1>{term}</h1>
+                                })}
                             </div>
                             <div class="include_exclude">
                                 <h4>Exclude Ingredient</h4>
-                                <input name="excludeItem" type="text" id="excludeItem" onChange={this.handleSearchTerm}></input>
-                                <button name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude}>Exclude Ingredient</button>
+                                <input name="excludeItem" type="text" id="excludeItem"></input>
+                                <button className="primary" name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude.bind(this, "exclude")}>Exclude Ingredient</button>
+                                {this.state.excludeTerms.map(term => {
+                                    return <h1>{term}</h1>
+                                })}
                             </div>
                         </div>
                     </div>
@@ -93,7 +117,7 @@ class SearchPage extends React.Component {
                         {Object.keys(this.state.cuisineList).map(cuisineKey => {
                             let cuisine = this.state.cuisineList[cuisineKey]
                             let cuisine_class = cuisine.active ? "cuisine_card cuisine_card_active" : "cuisine_card"
-                            return <button className={cuisine_class} cuisine={cuisine.name} active={cuisine.active} onClick={this.handleCuisineClick.bind(this, cuisineKey)}>{cuisine.name}</button>
+                            return <button className={cuisine_class} cuisine={cuisine.name} active={cuisine.active} onClick={this.handleCuisineClick.bind(this, cuisineKey)}>{_.startCase(cuisine.name)}</button>
                         })}
                     </div>
                 </div>

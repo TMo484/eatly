@@ -52,9 +52,21 @@ body {
   margin: 0;
 }
 
+button[class="primary"] {
+	background-color: #ED7D28;
+	border: 0px solid transparent;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+button[class="primary"]:hover {
+	background-color: #F0944F;
+}
+
 .eatly_font {
 	font-family: 'Pacifico', cursive;
-	color: orange;
+	color: #ED7D28;
 }
 
 .header {
@@ -163,8 +175,12 @@ body {
 }
 
 i[class^="fas fa"] {
-	color: orange;
+	color: #ED7D28;
 	cursor: pointer;
+}
+
+i[class^="fas fa"]:hover {
+	color: #F0944F;
 }
 
 .search_section {
@@ -204,5 +220,11 @@ i[class^="fas fa"] {
 }
 
 .cuisine_card_active {
-	background-color: green;
+	background-color: #83A44D;
+}
+
+div[class="search_section"] > h3 {
+	font-weight: bold;
+	background-color: #FEFEFD;
+	padding: 5px 0px;
 }
