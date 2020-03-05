@@ -121,7 +121,7 @@ class SearchPage extends React.Component {
                         })}
                     </div>
                 </div>
-                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}`}} label="Search for Recipe"/>
+                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}&includeIngredients=${this.state.includeTerms}&excludeIngredients=${this.state.excludeTerms}`}} label="Search for Recipe"/>
             </div>
         )
     }
