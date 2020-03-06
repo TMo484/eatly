@@ -14,9 +14,8 @@ class GroceryList extends React.Component {
         if(groceryList) {
             return(
                 Object.keys(groceryList).map(key => {
-                    console.log(groceryList[key])
                     let ingredient = groceryList[key]
-                    return <h1>{_.startCase(ingredient.name)}</h1>
+                    return <h1 key={`${ingredient.recipeid}_${ingredient.ingredientid}`}>{`${ingredient.amount} ${ingredient.unit} ${_.startCase(ingredient.name)}`}</h1>
                 })
             )
         } else {

@@ -33,12 +33,12 @@ class PageHeader extends React.Component {
                 <div className="header">
                     <div><span className="eatly_font">eatly</span></div>
                     <div className="page_header">
-                        <i class="fas fa-arrow-left fa-3x" onClick={this.handleGoBack.bind(this)}></i>
+                        <i className="fas fa-arrow-left fa-3x" onClick={this.handleGoBack.bind(this)}></i>
                         {buttonList.map(button => {
                             let buttonClass = window.location.pathname === button.route ? `${button.buttonType} ${button.buttonType}_active` : button.buttonType
-                            return <NavigationButton buttonType={buttonClass} route={button.route} label={button.label}/>
+                            return <NavigationButton key={button.label} buttonType={buttonClass} route={button.route} label={button.label}/>
                         })}
-                        <i class="fas fa-bars fa-3x"></i>
+                        <i className="fas fa-bars fa-3x"></i>
                     </div>
                 </div>
             </React.Fragment>

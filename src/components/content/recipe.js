@@ -5,7 +5,8 @@ class Recipe extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            recipe: null
+            recipe: null,
+            hasError: false
         }
     }
 
@@ -57,29 +58,32 @@ class Recipe extends React.Component {
     }
 
     render() {
-        if(!this.state.recipe) {
+        if (this.state.hasError) {
+            return <h3>Uh Oh! Something went wrong. Please try again.</h3>
+        }
+        else if(!this.state.recipe) {
             return <h3>Excellent Choice! Loading the recipe now</h3>
         } else {
             const recipe = this.state.recipe[0]
-            this.addToGroceryList()
+            // this.addToGroceryList()
             return (
                 <React.Fragment>
                     <img className="recipe_image" src={recipe.image}/>
                     <p>{JSON.stringify(recipe.title)}</p>
                     <div className="flex">
                         <h1>Ready in: {recipe.readyInMinutes} minutes</h1>
-                        <i class="far fa-clock"></i>
+                        <i className="far fa-clock"></i>
                     </div>
                     <h1>Serves: {recipe.servings}</h1>
                     <h1>Ingredients</h1>
                     {recipe.extendedIngredients.map(ingredient => {
-                        return (
-                            <div class="flex recipeIngredient">
-                            <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>Add to Shopping List</button>
-                                <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
-                            </div>
-                        )
-                    })}
+                            return (
+                                <div className="flex recipeIngredient">
+                                <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>Add to Shopping List</button>
+                                    <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                </div>
+                            )
+                        })}
                     <h1>Directions</h1>
                     {recipe.analyzedInstructions[0].steps.map(instruction => {
                         return <h1>{`${instruction.number} ${instruction.step}`}</h1>
