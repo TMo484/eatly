@@ -52,9 +52,21 @@ body {
   margin: 0;
 }
 
+button[class="primary"] {
+	background-color: #ED7D28;
+	border: 0px solid transparent;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+button[class="primary"]:hover {
+	background-color: #F0944F;
+}
+
 .eatly_font {
 	font-family: 'Pacifico', cursive;
-	color: orange;
+	color: #ED7D28;
 }
 
 .header {
@@ -75,13 +87,6 @@ body {
 	vertical-align: middle;
 }
 
-.header_button {
-	height: 100%;
-	width: 100%;
-	text-align: center;
-	vertical-align: middle;
-}
-
 .header_section {
 	height: 100%;
 	width: 25%;
@@ -91,11 +96,6 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	flex-direction: column;
-}
-
-.horizontally_spaced {
-	display:flex;
-	justify-content: space-evenly;
 }
 
 .welcome_header {
@@ -115,7 +115,22 @@ body {
 }
 
 .page_header {
-	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.header_button {
+	width: 20vw;
+	height: 10vh;
+	border: 0px;
+	background-color: whitesmoke;
+	cursor: pointer;
+}
+
+.header_button_active {
+	border-top: 4px solid #ED7D28;
+	background-color: #EEECE8;
 }
 
 .centered_caption {
@@ -138,15 +153,24 @@ body {
 }
 
 .content {
-  background-color: #DDDDDD;
+  background-color: #EEECE8;
   flex: 1 0 auto;
 }
 
 .recipe_card {
 	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 150px;
 	background-color: grey;
 	margin: 10px;
 	align-items: center;
+	border: 2px solid grey;
+	border-radius: 5px;
+}
+
+.recipe_card:hover {
+	background-color: lightgray;
 }
 
 .recipe_image {
@@ -159,6 +183,70 @@ body {
 	margin: 10px;
 }
 
-.fa-arrow-left {
-	color: orange
+.recipe_list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+i[class^="fas fa"] {
+	color: #ED7D28;
+	cursor: pointer;
+}
+
+i[class^="fas fa"]:hover {
+	color: #F0944F;
+}
+
+.search_section {
+	padding: 10px 0 10px 0;
+}
+
+#search_term_section {
+	display: flex;
+	flex-flow: column;
+}
+
+#inc_exc_section {
+	display: flex;
+}
+
+.include_exclude {
+	display: flex;
+	flex-flow: column;
+	width: 45vw;
+	padding: 0 2.5vw 0 2.5vw;
+}
+
+#cuisine_list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cuisine_card {
+	width: 150px;
+	height: 75px;
+}
+
+.cuisine_button {
+	width: 150px;
+	height: 75px;
+}
+
+.cuisine_card_active {
+	background-color: #83A44D;
+}
+
+div[class="search_section"] > h3 {
+	font-weight: bold;
+	padding: 5px 0px;
+}
+
+.recipeIngredient {
+	display: flex;
+}
+
+.flex {
+	display: flex;
 }

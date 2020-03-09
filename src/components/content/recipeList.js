@@ -40,7 +40,7 @@ class RecipeList extends React.Component {
             return category !== undefined
         }).join("&")
 
-        const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${queryString}`
+        const fetchURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?number=50&${queryString}`
 
         fetch(fetchURL, {
             "method": "GET",
@@ -68,7 +68,7 @@ class RecipeList extends React.Component {
             )
         } else {
             return (
-                <div className="content vertically_spaced">
+                <div className="recipe_list">
                     {this.state.recipies.results.map(recipe => {
                         return <RecipeCard key={recipe.id} recipe={recipe}/>
                     })}

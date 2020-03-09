@@ -92,7 +92,7 @@ class SearchPage extends React.Component {
                     <div className="search_section">
                         <h3>Include / Exclude Ingredients</h3>
                         <div id="inc_exc_section">
-                            <div class="include_exclude">
+                            <div className="include_exclude">
                                 <h4>Include Ingredient</h4>
                                 <input name="includeItem" type="text" id="includeItem"></input>
                                 <button className="primary" name="includeButton" type="button" id="includeButton" onClick={this.handleInclude.bind(this, "include")}>Include Ingredient</button>
@@ -100,7 +100,7 @@ class SearchPage extends React.Component {
                                     return <h1>{term}</h1>
                                 })}
                             </div>
-                            <div class="include_exclude">
+                            <div className="include_exclude">
                                 <h4>Exclude Ingredient</h4>
                                 <input name="excludeItem" type="text" id="excludeItem"></input>
                                 <button className="primary" name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude.bind(this, "exclude")}>Exclude Ingredient</button>
@@ -117,11 +117,11 @@ class SearchPage extends React.Component {
                         {Object.keys(this.state.cuisineList).map(cuisineKey => {
                             let cuisine = this.state.cuisineList[cuisineKey]
                             let cuisine_class = cuisine.active ? "cuisine_card cuisine_card_active" : "cuisine_card"
-                            return <button className={cuisine_class} cuisine={cuisine.name} active={cuisine.active} onClick={this.handleCuisineClick.bind(this, cuisineKey)}>{_.startCase(cuisine.name)}</button>
+                            return <button key={cuisine.name} className={cuisine_class} cuisine={cuisine.name} onClick={this.handleCuisineClick.bind(this, cuisineKey)}>{_.startCase(cuisine.name)}</button>
                         })}
                     </div>
                 </div>
-                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}`}} label="Search for Recipe"/>
+                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}&includeIngredients=${this.state.includeTerms}&excludeIngredients=${this.state.excludeTerms}`}} label="Search for Recipe"/>
             </div>
         )
     }
