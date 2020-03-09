@@ -6,12 +6,16 @@ class Recipe extends React.Component {
         super(props)
         this.state = {
             recipe: null,
+<<<<<<< HEAD
             groceryList: {},
+=======
+>>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
             hasError: false
         }
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         this.setState({ groceryList: JSON.parse(window.localStorage.getItem("groceryList")) || this.state.groceryList })
         this.getRecipe()
         // this.setState({ recipe: fakeRecipeData })
@@ -19,6 +23,10 @@ class Recipe extends React.Component {
 
     componentDidUpdate() {
         window.localStorage.setItem("groceryList", JSON.stringify(this.state.groceryList))
+=======
+        this.getRecipe()
+        // this.setState({ recipe: fakeRecipeData })
+>>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
     }
 
     getRecipe() {
@@ -71,7 +79,7 @@ class Recipe extends React.Component {
             return <h3>Excellent Choice! Loading the recipe now</h3>
         } else {
             const recipe = this.state.recipe[0]
-            this.addToGroceryList()
+            // this.addToGroceryList()
             return (
                 <React.Fragment>
                     <img className="recipe_image" src={recipe.image}/>
@@ -83,10 +91,16 @@ class Recipe extends React.Component {
                     <h1>Serves: {recipe.servings}</h1>
                     <h1>Ingredients</h1>
                     {recipe.extendedIngredients.map(ingredient => {
+<<<<<<< HEAD
                             let itemExists = this.state.groceryList[`${recipe.id}_${ingredient.id}`] ? "Added!": "Add to Shopping List"
                             return (
                                 <div className="flex recipeIngredient">
                                 <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>{itemExists}</button>
+=======
+                            return (
+                                <div className="flex recipeIngredient">
+                                <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>Add to Shopping List</button>
+>>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
                                     <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
                                 </div>
                             )

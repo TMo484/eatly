@@ -26,6 +26,7 @@ class GroceryList extends React.Component {
     render() {
         if(this.state.groceryList) {
             return(
+<<<<<<< HEAD
                 <div>
                     {Object.keys(this.state.groceryList).map(key => {
                         let ingredient = this.state.groceryList[key]
@@ -37,6 +38,12 @@ class GroceryList extends React.Component {
                         )
                     })}
                 </div>
+=======
+                Object.keys(groceryList).map(key => {
+                    let ingredient = groceryList[key]
+                    return <h1 key={`${ingredient.recipeid}_${ingredient.ingredientid}`}>{`${ingredient.amount} ${ingredient.unit} ${_.startCase(ingredient.name)}`}</h1>
+                })
+>>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
             )
         } else {
             return <h1>No grocery's added yet. Start Searching!</h1>
