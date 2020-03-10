@@ -6,27 +6,18 @@ class Recipe extends React.Component {
         super(props)
         this.state = {
             recipe: null,
-<<<<<<< HEAD
             groceryList: {},
-=======
->>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
             hasError: false
         }
     }
 
     componentDidMount() {
-<<<<<<< HEAD
         this.setState({ groceryList: JSON.parse(window.localStorage.getItem("groceryList")) || this.state.groceryList })
         this.getRecipe()
-        // this.setState({ recipe: fakeRecipeData })
     }
 
     componentDidUpdate() {
         window.localStorage.setItem("groceryList", JSON.stringify(this.state.groceryList))
-=======
-        this.getRecipe()
-        // this.setState({ recipe: fakeRecipeData })
->>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
     }
 
     getRecipe() {
@@ -89,26 +80,36 @@ class Recipe extends React.Component {
                         <i className="far fa-clock"></i>
                     </div>
                     <h1>Serves: {recipe.servings}</h1>
-                    <h1>Ingredients</h1>
-                    {recipe.extendedIngredients.map(ingredient => {
-<<<<<<< HEAD
-                            let itemExists = this.state.groceryList[`${recipe.id}_${ingredient.id}`] ? "Added!": "Add to Shopping List"
-                            return (
-                                <div className="flex recipeIngredient">
-                                <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>{itemExists}</button>
-=======
-                            return (
-                                <div className="flex recipeIngredient">
-                                <button className="addToGrocery" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}>Add to Shopping List</button>
->>>>>>> 5e34f83f257bd33353efc8faeb0a0f8b1cc506e1
-                                    <h1>{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
-                                </div>
-                            )
-                        })}
-                    <h1>Directions</h1>
-                    {recipe.analyzedInstructions[0].steps.map(instruction => {
-                        return <h1>{`${instruction.number} ${instruction.step}`}</h1>
-                    })}
+                    <div id="ingredientAndDirection">
+                        <div id="ingredientSection">
+                            <h1>Ingredients</h1>
+                            {recipe.extendedIngredients.map(ingredient => {
+                                    if(this.state.groceryList[`${recipe.id}_${ingredient.id}`]) {
+                                        return (
+                                            <div className="flex groceryItem">
+                                                <i className="fas fa-check-circle fa-lg" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}></i>
+                                                <h1 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                            </div>
+                                    )} else {
+                                        return (
+                                            <div className="flex groceryItem">
+                                                <i className="fas fa-plus-circle fa-lg" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}></i>
+                                                <h1 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                            </div>
+                                    )}
+                                })}
+                        </div>
+                        <div id="directionSection">
+                            <h1>Directions</h1>
+                            {recipe.analyzedInstructions[0].steps.map(instruction => {
+                                return (
+                                    <div className="flex directionItem">
+                                        <h1>{instruction.number}</h1>
+                                        <h1>{instruction.step}</h1>
+                                    </div>
+                            )})}
+                        </div>
+                    </div>
                 </React.Fragment>
             )
         }
