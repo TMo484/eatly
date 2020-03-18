@@ -189,12 +189,12 @@ button[class="primary"]:hover {
 	justify-content: center;
 }
 
-i[class^="fas fa"] {
+i[class^="fa"] {
 	color: #ED7D28;
 	cursor: pointer;
 }
 
-i[class^="fas fa"]:hover {
+i[class^="fa"]:hover {
 	color: #F0944F;
 }
 
@@ -243,10 +243,55 @@ div[class="search_section"] > h3 {
 	padding: 5px 0px;
 }
 
-.recipeIngredient {
+.flex {
 	display: flex;
 }
 
-.flex {
+.groceryItem {
 	display: flex;
+	align-items: center;
+	padding: 7px;
+}
+
+.groceryItem + .groceryItem {
+	border-top: 2px solid lightgrey;
+}
+
+.groceryIngredient {
+	font-size: 17px;
+}
+
+i[class~="fa-minus-circle"] {
+	color: #B92525;
+	margin: 0px 5px 0px 25px;
+}
+
+i[class~="fa-minus-circle"]:hover {
+	color: #E75353
+}
+
+i[class~="fa-check-circle"] {
+	color: #17860F;
+	margin: 0px 5px 0px 5px;
+}
+
+i[class~="fa-check-circle"]:hover {
+	color: #42A63B
+}
+
+i[class~="fa-plus-circle"] {
+	margin: 0px 5px 0px 5px;
+}
+
+#ingredientAndDirection {
+	display: flex;
+	justify-content: space-between;
+}
+
+#ingredientSection {
+	width: 50%;
+}
+
+#directionSection {
+	width: 50%;
 }
