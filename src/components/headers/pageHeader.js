@@ -19,7 +19,7 @@ let groceryListButton = {
     label: "Grocery List"
 }
 
-const buttonList = [recipeSearchButton, mealPlannigButton, groceryListButton]
+const buttonList = [recipeSearchButton, groceryListButton]
 
 class PageHeader extends React.Component {
 

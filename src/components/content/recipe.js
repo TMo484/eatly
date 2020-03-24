@@ -73,13 +73,20 @@ class Recipe extends React.Component {
             // this.addToGroceryList()
             return (
                 <React.Fragment>
-                    <img className="recipe_image" src={recipe.image}/>
-                    <p>{JSON.stringify(recipe.title)}</p>
-                    <div className="flex">
-                        <h1>Ready in: {recipe.readyInMinutes} minutes</h1>
-                        <i className="far fa-clock"></i>
+                    <div className="recipe_header">
+                        <img src={recipe.image}/>
+                        <div className="recipe_info">
+                            <h1>{recipe.title}</h1>
+                            <div>
+                                <i className="far fa-clock"></i>
+                                <h3>Ready in: {recipe.readyInMinutes} minutes</h3>
+                            </div>
+                            <div>
+                                <i class="fas fa-cheese"></i>
+                                <h3>Serves: {recipe.servings}</h3>
+                            </div>
+                        </div>
                     </div>
-                    <h1>Serves: {recipe.servings}</h1>
                     <div id="ingredientAndDirection">
                         <div id="ingredientSection">
                             <h1>Ingredients</h1>
@@ -88,13 +95,13 @@ class Recipe extends React.Component {
                                         return (
                                             <div className="flex groceryItem">
                                                 <i className="fas fa-check-circle fa-lg" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}></i>
-                                                <h1 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                                <h3 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h3>
                                             </div>
                                     )} else {
                                         return (
                                             <div className="flex groceryItem">
                                                 <i className="fas fa-plus-circle fa-lg" onClick={this.addToGroceryList.bind(this, ingredient, recipe)}></i>
-                                                <h1 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h1>
+                                                <h3 className="groceryIngredient">{`${ingredient.amount} ${ingredient.measures.us.unitLong} ${_.startCase(ingredient.name)}`}</h3>
                                             </div>
                                     )}
                                 })}
@@ -103,9 +110,9 @@ class Recipe extends React.Component {
                             <h1>Directions</h1>
                             {recipe.analyzedInstructions[0].steps.map(instruction => {
                                 return (
-                                    <div className="flex directionItem">
-                                        <h1>{instruction.number}</h1>
-                                        <h1>{instruction.step}</h1>
+                                    <div className="directionItem">
+                                        <h2>{instruction.number}</h2>
+                                        <h3>{instruction.step}</h3>
                                     </div>
                             )})}
                         </div>
