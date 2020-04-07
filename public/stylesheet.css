@@ -326,6 +326,7 @@ i[class~="fa-plus-circle"] {
 
 .directionItem + .directionItem {
 	border-top: 2px solid lightgrey;
+	margin: 5px 0;
 }
 
 .recipe_header {

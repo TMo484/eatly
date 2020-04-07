@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { changePage, changeQueryTerms } from '../../redux/actions';
 import { RECIPE_RESULTS } from '../../redux/reducer';
 
@@ -27,7 +26,7 @@ class RecipeSearch extends React.Component {
 
     render() {
         return (
-            <div>            
+            <div className="search">            
                 <h4>Search Term</h4>
                 <input name="query" type="text" id="query" onChange={this.handleSearchTerm.bind(this)}></input>
                 <h4>Include Ingredient</h4>
