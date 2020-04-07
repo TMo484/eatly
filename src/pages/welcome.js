@@ -10,8 +10,7 @@ class WelcomePage extends React.Component {
             <div className="outer">
                 <WelcomeHeader/>
                 <div className="content vertically_spaced">
-                    <NavigationButton buttonType = "navigation_button" route="/login" label="Login" target="LOGINPAGE"/>
-                    <NavigationButton buttonType = "navigation_button" route="/find" label="Visit as Guest" target={HOMEPAGE}/>
+                    <NavigationButton buttonType = "navigation_button" route="/find" label="Start Exploring" target={HOMEPAGE}/>
                 </div>
             </div>
         )
