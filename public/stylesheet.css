@@ -61,6 +61,8 @@ button[class="primary"] {
 	cursor: pointer;
 	border-radius: 5px;
 	margin: 5px;
+	font-weight: bold;
+	font-size: 15px;
 }
 
 button[class="primary"]:hover {
@@ -90,10 +92,15 @@ button[class="primary"]:hover {
 	width: 80%;
 	height: 100px;
 	margin: 0 10% 0 10%;
-	background-color: grey;
+	background-color: #42A63B;
 	border: 0.1em solid #000000;
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
+}
+
+.navigation_button:hover {
+	background-color: #83A44D;
 }
 
 .header_section {
@@ -171,10 +178,9 @@ button[class="primary"]:hover {
 	flex-direction: column;
 	width: 250px;
 	height: 150px;
-	background-color: grey;
 	margin: 10px;
 	align-items: center;
-	border: 2px solid grey;
+	border: 1px solid lightgray;
 	border-radius: 5px;
 }
 
@@ -185,6 +191,7 @@ button[class="primary"]:hover {
 .recipe_card img {
 	width: 150px;
 	height: 80px;
+	margin: 10px;
 	background-color: darkgrey;
 }
 
@@ -241,6 +248,16 @@ i[class^="fa"]:hover {
 .cuisine_card {
 	width: 150px;
 	height: 75px;
+	margin: 10px;
+	border: 0;
+	background-color: #F0944F;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.cuisine_card:hover {
+	cursor: pointer;
+	background-color: #ED7D28;
 }
 
 .cuisine_button {
@@ -252,9 +269,14 @@ i[class^="fa"]:hover {
 	background-color: #83A44D;
 }
 
+.cuisine_card_active:hover {
+	background-color: #17860F;
+}
+
 div[class="search_section"] > h3 {
 	font-weight: bold;
 	padding: 5px 0px;
+	font-size: 24px;
 }
 
 .flex {
@@ -361,4 +383,85 @@ i[class~="fa-plus-circle"] {
 
 .recipe_info div i {
 	margin: 0 5px 0 0;
+}
+
+a { 
+	color: inherit;
+	font-style: inherit;
+	text-decoration: inherit;
+} 
+
+.view_selector {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.view_mode {
+	padding: 3px 7px;
+	cursor: pointer;
+}
+
+.view_mode + .view_mode {
+	border-left: 2px solid grey;
+}
+
+.view_mode:hover {
+	background-color: lightgray;
+}
+
+.view_mode_active {
+	background-color: #ED7D28;
+	color: white;
+}
+
+.recipe_list_view {
+	display: flex;
+	height: 75px;
+	margin: 10px;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.recipe_list_view:hover {
+	background-color: lightgray;
+}
+
+.recipe_list_view img {
+	width: auto;
+	height: 60px;
+	background-color: darkgrey;
+}
+
+.recipe_list_view h3 {
+	margin: 10px;
+}
+
+.search_recipe {
+	background-color: #17860F;
+	color: white;
+	border: 0;
+	width: 100%;
+	height: 50px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+div[class="search_section"] + div[class="search_section"] {
+	border-top: 1px dotted grey;
+}
+
+.start_exploring {
+	background-color: #42A63B;
+}
+
+.eatly_button {
+	font-family: 'Pacifico', cursive;
+	color: #ED7D28;
+	border: 0;
+	font-size: 40px;
+	cursor: pointer;
+}
+
+.eatly_button:hover {
+	color: #F0944F
 }

@@ -30,7 +30,7 @@ class GroceryList extends React.Component {
                     {Object.keys(this.state.groceryList).map(key => {
                         let ingredient = this.state.groceryList[key]
                         return (
-                            <div className="groceryItem">
+                            <div key={ingredient.ingredientid} className="groceryItem">
                                 <i className="fas fa-minus-circle fa-lg" onClick={this.deleteFromGroceryList.bind(this, ingredient)}></i>
                                 <h1 className="groceryIngredient" key={`${ingredient.recipeid}_${ingredient.ingredientid}`}>{`${ingredient.amount} ${ingredient.unit} ${_.startCase(ingredient.name)}`}</h1>
                             </div>

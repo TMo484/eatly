@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeCard from '../cards/recipeCard';
+import RecipeListView from '../cards/recipeList';
 
 
 class RecipeList extends React.Component {
@@ -35,6 +36,8 @@ class RecipeList extends React.Component {
         let queryString = paramCategory.map((category, i) => {
             if (paramTerm[i]) {
                 return [category, paramTerm[i]].join("=")
+            } else {
+                return ""
             }
         }).filter(category => {
             return category !== undefined
@@ -67,13 +70,22 @@ class RecipeList extends React.Component {
             </div>
             )
         } else {
-            return (
-                <div className="recipe_list">
-                    {this.state.recipies.results.map(recipe => {
-                        return <RecipeCard key={recipe.id} recipe={recipe}/>
-                    })}
-                </div>
-            )}
+            if(this.props.viewMode === "Grid View") {
+                return (
+                    <div className="recipe_list">
+                        {this.state.recipies.results.map(recipe => {
+                            return <RecipeCard key={recipe.id} recipe={recipe}/>
+                        })}
+                    </div>
+                )} else if (this.props.viewMode === "List View") {
+                    return (
+                        <div>
+                            {this.state.recipies.results.map(recipe => {
+                                return <RecipeListView key={recipe.id} recipe={recipe}/>
+                            })}
+                        </div>
+                    )}
+            }
     }
 }
 

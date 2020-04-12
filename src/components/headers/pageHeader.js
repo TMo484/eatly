@@ -7,16 +7,22 @@ let recipeSearchButton = {
     label: "Recipe Search"
 }
 
-let mealPlannigButton = {
-    buttonType: "header_button",
-    route: "/planning",
-    label: "Meal Planning"
-}
+// let mealPlanningButton = {
+//     buttonType: "header_button",
+//     route: "/planning",
+//     label: "Meal Planning"
+// }
 
 let groceryListButton = {
     buttonType: "header_button",
     route: "/grocery",
     label: "Grocery List"
+}
+
+let homeButton = {
+    buttonType: "eatly_button",
+    route: "/",
+    label: "eatly"
 }
 
 const buttonList = [recipeSearchButton, groceryListButton]
@@ -37,7 +43,8 @@ class PageHeader extends React.Component {
                             let buttonClass = window.location.pathname === button.route ? `${button.buttonType} ${button.buttonType}_active` : button.buttonType
                             return <NavigationButton key={button.label} buttonType={buttonClass} route={button.route} label={button.label}/>
                         })}
-                        <div><span className="eatly_font">eatly</span></div>
+                        <NavigationButton key={homeButton.label} buttonType={homeButton.buttonType} route={homeButton.route} label={homeButton.label}/>
+                        {/* <div><span className="eatly_font">eatly</span></div> */}
                     </div>
                 </div>
             </React.Fragment>

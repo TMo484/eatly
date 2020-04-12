@@ -55,7 +55,7 @@ class SearchPage extends React.Component {
                 document.getElementById("includeItem").value = ""
             }
             this.setState({includeTerms: metaincludeTerms})
-        } else if (side = "exclude") {
+        } else if (side === "exclude") {
             let metaExcludeTerms = this.state.excludeTerms
             const excludeItem = document.getElementById("excludeItem").value
             if(excludeItem) {
@@ -84,30 +84,28 @@ class SearchPage extends React.Component {
         return (
             <div className="content">
                 <PageHeader/>
-                <div>
-                    <div className="search_section" id="search_term_section">
-                        <h3>Search Term</h3>
-                        <input name="query" type="text" id="query" onChange={this.handleSearchTerm}></input>
-                    </div>
-                    <div className="search_section">
-                        <h3>Include / Exclude Ingredients</h3>
-                        <div id="inc_exc_section">
-                            <div className="include_exclude">
-                                <h4>Include Ingredient</h4>
-                                <input name="includeItem" type="text" id="includeItem"></input>
-                                <button className="primary" name="includeButton" type="button" id="includeButton" onClick={this.handleInclude.bind(this, "include")}>Include Ingredient</button>
-                                {this.state.includeTerms.map(term => {
-                                    return <h1>{term}</h1>
-                                })}
-                            </div>
-                            <div className="include_exclude">
-                                <h4>Exclude Ingredient</h4>
-                                <input name="excludeItem" type="text" id="excludeItem"></input>
-                                <button className="primary" name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude.bind(this, "exclude")}>Exclude Ingredient</button>
-                                {this.state.excludeTerms.map(term => {
-                                    return <h1>{term}</h1>
-                                })}
-                            </div>
+                <div className="search_section" id="search_term_section">
+                    <h3>Search Term</h3>
+                    <input name="query" type="text" id="query" onChange={this.handleSearchTerm}></input>
+                </div>
+                <div className="search_section">
+                    <h3>Include / Exclude Ingredients</h3>
+                    <div id="inc_exc_section">
+                        <div className="include_exclude">
+                            <h4>Include Ingredient</h4>
+                            <input name="includeItem" type="text" id="includeItem"></input>
+                            <button className="primary" name="includeButton" type="button" id="includeButton" onClick={this.handleInclude.bind(this, "include")}>Include Ingredient</button>
+                            {this.state.includeTerms.map(term => {
+                                return <h1 key={term}>{term}</h1>
+                            })}
+                        </div>
+                        <div className="include_exclude">
+                            <h4>Exclude Ingredient</h4>
+                            <input name="excludeItem" type="text" id="excludeItem"></input>
+                            <button className="primary" name="excludeButton" type="button" id="excludeButton" onClick={this.handleInclude.bind(this, "exclude")}>Exclude Ingredient</button>
+                            {this.state.excludeTerms.map(term => {
+                                return <h1 key={term}>{term}</h1>
+                            })}
                         </div>
                     </div>
                 </div>
@@ -121,7 +119,7 @@ class SearchPage extends React.Component {
                         })}
                     </div>
                 </div>
-                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}&includeIngredients=${this.state.includeTerms}&excludeIngredients=${this.state.excludeTerms}`}} label="Search for Recipe"/>
+                <NavigationButton route={{pathname: "/results", search: `query=${this.state.searchTerm}&cuisine=${this.state.searchCuisine.join()}&includeIngredients=${this.state.includeTerms}&excludeIngredients=${this.state.excludeTerms}`}} label="Search for Recipe" buttonType="search_recipe"/>
             </div>
         )
     }
